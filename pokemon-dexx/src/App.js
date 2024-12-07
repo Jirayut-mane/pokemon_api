@@ -2,28 +2,27 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
-// กำหนดสีพื้นหลังสำหรับแต่ละธาตุ
 const typeColors = {
-  grass: '#7CFC00',   // ธาตุหญ้า
-  fire: '#FF4500',    // ธาตุไฟ
-  water: '#1E90FF',   // ธาตุน้ำ
-  poison: '#8A2BE2',  // ธาตุพิษ
-  electric: '#FFD700',// ธาตุไฟฟ้า
-  ground: '#D2B48C',  // ธาตุดิน
-  psychic: '#F8F8FF', // ธาตุจิต
-  rock: '#A52A2A',    // ธาตุหิน
-  ghost: '#800080',   // ธาตุผี
-  dragon: '#8B0000',  // ธาตุมังกร
-  dark: '#2F4F4F',    // ธาตุมืด
-  fairy: '#FF69B4',   // ธาตุเทพ
-  normal: '#D3D3D3'   // ธาตุปกติ
+  grass: '#7CFC00', 
+  fire: '#FF4500', 
+  water: '#1E90FF',
+  poison: '#8A2BE2',
+  electric: '#FFD700',
+  ground: '#D2B48C',
+  psychic: '#F8F8FF',
+  rock: '#A52A2A',
+  ghost: '#800080',
+  dragon: '#8B0000', 
+  dark: '#2F4F4F', 
+  fairy: '#FF69B4',
+  normal: '#D3D3D3' 
 };
 
 const App = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // ฟังก์ชันในการดึงข้อมูลโปเกมอน
+
   const fetchPokemon = async () => {
     setLoading(true);
     try {
@@ -54,9 +53,7 @@ const App = () => {
 
       <div className="pokemon-list">
         {pokemonData.map((pokemon) => {
-          // กำหนดสีพื้นหลังตามธาตุของโปเกมอน
-          const backgroundColor = typeColors[pokemon.types[0].type.name] || '#D3D3D3';  // Default สีธรรมดา
-
+          const backgroundColor = typeColors[pokemon.types[0].type.name] || '#D3D3D3'; 
           return (
             <div className="pokemon-card" key={pokemon.id} style={{ backgroundColor }}>
               <h2>{pokemon.name.toUpperCase()}</h2>
